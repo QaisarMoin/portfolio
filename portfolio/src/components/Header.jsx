@@ -4,33 +4,53 @@ import { Link, NavLink } from "react-router-dom";
 function Header() {
   return (
     <>
-      <div className=" w-full p-3 item-center flex justify-between m-auto">
+      <div
+        className=" w-full p-3 px-9 item-center
+       flex justify-between m-auto"
+      >
         <div
           className="flex w-9/12 
-         h-14 max-h-14 relative
-        list-none justify-around 
+        h-14 max-h-14 relative
+        list-none justify-evenly 
         items-center mx-6  rounded-xl 
-        p-2 bg-white/10  text-white backdrop-blur-lg
-         backdrop-filter drop-shadow-xl drop-shadow-white"
+        p-2 bg-white/10  text-white 
+        hover:outline hover:outline-1
+         hover:bg-slate-900/50 ml-24"
         >
-          <li className=" mx-3">
+          <NavLink
+            to="/"
+            className={({ isActive }) => `
+            hover:animate-bounce ${
+              isActive
+                ? "animate-bounce rounded-xl bg-sky-900 text-sky-500"
+                : " animate-none"
+            }
+          `}
+          >
             <button
               className="
               w-20 h-[50px]
-             hover:animate-bounce
               hover:bg-sky-900
               hover:text-sky-500
               p-1 px-2 rounded-xl"
             >
               Home
             </button>
-          </li>
-          <li className=" mx-3">
-            {" "}
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) => `
+              hover:animate-bounce ${
+                isActive
+                  ? " animate-bounce rounded-xl bg-sky-900 text-sky-500"
+                  : "animate-none"
+              }
+          `}
+          >
             <button
               className="
               w-20 h-[50px]
-               hover:animate-bounce
               hover:bg-sky-900
               hover:text-sky-500
               p-1 px-2 rounded-xl
@@ -38,13 +58,18 @@ function Header() {
             >
               About
             </button>
-          </li>
-          <li className=" mx-3">
+          </NavLink>
+          <NavLink
+            to="/skill"
+            className={({ isActive }) => `
+            hover:animate-bounce
+          ${isActive ? "animate-bounce bg-sky-900 text-sky-500 rounded-xl" : ""}
+          `}
+          >
             {" "}
             <button
               className="
               w-20 h-[50px]
-               hover:animate-bounce
               hover:bg-sky-900
               hover:text-sky-500
               p-1 px-2 rounded-xl
@@ -52,28 +77,36 @@ function Header() {
             >
               Skills
             </button>
-          </li>
-          <li className=" mx-3">
+          </NavLink>
+          <NavLink
+            to="/project"
+            className={({ isActive }) => `
+           hover:animate-bounce
+          ${
+            isActive ? " animate-bounce bg-sky-900 text-sky-500 rounded-xl" : ""
+          }
+          `}
+          >
             {" "}
             <button
               className="
               w-20 h-[50px]
-               hover:animate-bounce
               hover:bg-sky-900
-              hover:border-white
-              hover:border-[1px]
               hover:text-sky-500
               p-1 px-2 rounded-xl
              "
             >
               Projects
             </button>
-          </li>
+          </NavLink>
         </div>
-        <div className=" mx-6 p-2 text-white">
+        <div
+          className=" mx-10 p-1 px-4 bg-white/10 
+         text-white rounded-xl hover:outline 
+         hover:outline-2 hover:bg-slate-900"
+        >
           <button
             className="
-             mr-11
               w-20 h-[50px]
                hover:animate-bounce
               hover:bg-sky-900/50

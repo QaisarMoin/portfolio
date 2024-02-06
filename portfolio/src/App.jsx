@@ -3,11 +3,18 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { Outlet } from "react-router-dom";
+import Home from "./components/Home";
 
 function App() {
   return (
     <>
-      <Header />
+      <div className="bg-[url('public/images/blue.jpg')] h-[100vh] bg-cover bg-center">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
     </>
   );
 }
